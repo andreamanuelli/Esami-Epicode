@@ -75,7 +75,10 @@ select
 avg(PrezzoVendita)
 from sales
 where
-year(DataOrdine) = (SELECT MAX(YEAR(DataOrdine)) FROM sales)
+year(DataOrdine) = (
+select 
+max(year(DataOrdine)) 
+from sales)
 );
 
 -- Commento: Per poter riuscire a mostrare il fatturato totale di un determinato prodotto è necessario come prima cosa raggruppare il dato per cui si vuole sapere il fatturato e 
